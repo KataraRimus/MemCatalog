@@ -1,0 +1,39 @@
+﻿<Window x:Class="memCatalog.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:memCatalog"
+        mc:Ignorable="d"
+        Title="Каталог Мемов" Height="437" Width="815"
+        ResizeMode="CanMinimize" MinWidth="815" MinHeight="437" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="302*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="375"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="275"/>
+            <ColumnDefinition Width="25"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="MemList" Grid.Column="4" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="MemList_Selected"/>
+        <TextBox x:Name="SearchBox" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Height="21" TextChanged="SearchTXT_Changed"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Margin="0,29,0,0"><Run Text="Категория"/><Run Language="ru-ru" Text=":"/></TextBlock>
+        <ComboBox x:Name="MainCatecoryBox" Grid.Column="4" HorizontalAlignment="Right" Margin="0,26,0,0" Grid.Row="1" VerticalAlignment="Top" Width="210" SelectionChanged="Category_Changed"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="0,2,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Поиск:"/></TextBlock>
+        <Button x:Name="AddButton" Grid.Column="3" Content="Добавить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Margin="0,2,0,0" Width="80" Click="AddMem_Button_Click"/>
+        <Button x:Name="SaveButton" Grid.Column="3" Content="Сохранить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Margin="0,43,0,0" Width="80" Click="Save_File"/>
+        <Button x:Name="LoadButton" Grid.Column="3" Content="Загрузить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Margin="0,68,0,0" Width="80" Click="Load_File"/>
+        <Button x:Name="DelButton" Grid.Column="3" Content="Удалить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="80" Click="DelMem"/>
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
+            <Image x:Name="ImageBox"/>
+        </Border>
+    </Grid>
+</Window>
